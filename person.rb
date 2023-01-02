@@ -2,11 +2,11 @@ class Person
   atrr_reader :id, :name, :age
   atrr_writer :name, :age
 
-  def initialize(age, name = 'unknown', perent_permission: true)
+  def initialize(age, name = 'unknown', parent_permission: true)
     @id = Random.rand(1..1000)
     @name = name
     @age = age
-    @perent_permission = perent_permission
+    @parent_permission = parent_permission
   end
 
   def of_age?
