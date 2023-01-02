@@ -1,6 +1,6 @@
 class Person
-  atrr_reader :id
-  atrr_accessor :name, :age
+  atrr_reader :id, :name, :age
+  atrr_writer :name, :age
 
   def initialize(age, name = 'unknown', perent_permission: true)
     @id = Random.rand(1..1000)

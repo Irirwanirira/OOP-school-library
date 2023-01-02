@@ -1,4 +1,3 @@
-
 class Teacher < Person
   def initialize(name, age, specialization, parent_permission)
     super(name, age, parent_permission)
