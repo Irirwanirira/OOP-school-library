@@ -1,27 +1,21 @@
 class Person
-  def initialize(name = "unknown", perent_permission = true, age)
+  atrr_reader :id
+  atrr_accessor :name, :age
+
+  def initialize(age, name = 'unknown', perent_permission: true)
     @id = Random.rand(1..1000)
     @name = name
     @age = age
     @perent_permission = perent_permission
   end
 
-  if age >= 18 
-    true
-  else false
+  def of_age?
+    @age >= 18
+  end
 
-  if age>=18 || parent_permission == true 
-    puts "can use service"
-  else "can not use service"
+  private :of_age?
 
-end
-
-class Student < Person
-  def play_hooky(classroom)
-    @classroom = classroom
-    return "¯\(ツ)/¯"
+  def can_use_services?
+    of_age? || @parent_permission
   end
 end
-
-person_1 = Person.new("Rhys",32)
-puts person_1.name
