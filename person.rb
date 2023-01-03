@@ -5,6 +5,7 @@ class Person < Nameable
   atrr_writer :name, :age
 
   def initialize(age, name = 'unknown', parent_permission: true)
+    super(age, name, parent_permission)
     @id = Random.rand(1..1000)
     @name = name
     @age = age
