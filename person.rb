@@ -1,4 +1,6 @@
-class Person
+require_relative 'nameable'
+
+class Person < Nameable
   atrr_reader :id, :name, :age
   atrr_writer :name, :age
 
