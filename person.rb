@@ -3,8 +3,8 @@ require_relative 'trimmer_decorator'
 require_relative 'capitalize_decorator'
 
 class Person < Nameable
-  atrr_accessor :name, :age
-  atrr_reader :id
+  attr_accessor :name, :age
+  attr_reader :id, :rentals
 
   def initialize(age, name = 'unknown', parent_permission: true)
     super()
@@ -12,6 +12,11 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
+  end
+
+  def add_rentals(rentals)
+    @rentals.push(rentals)
   end
 
   def of_age?
