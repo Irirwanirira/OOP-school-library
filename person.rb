@@ -1,11 +1,13 @@
 require_relative 'nameable'
+require_relative 'trimmer_decorator'
+require_relative 'capitalize_decorator'
 
 class Person < Nameable
   atrr_reader :id, :name, :age
   atrr_writer :name, :age
 
   def initialize(age, name = 'unknown', parent_permission: true)
-    super(age, name, parent_permission)
+    super()
     @id = Random.rand(1..1000)
     @name = name
     @age = age
@@ -22,3 +24,10 @@ class Person < Nameable
     of_age? || @parent_permission
   end
 end
+
+person = Person.new(22, 'maximilianus')
+person.correct_name
+capitalized_person = CapitalizeDecorator.new(person)
+capitalized_person.correct_name
+capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
+capitalized_trimmed_person.correct_name
