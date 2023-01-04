@@ -3,8 +3,8 @@ require_relative 'trimmer_decorator'
 require_relative 'capitalize_decorator'
 
 class Person < Nameable
-  atrr_reader :id, :name, :age
-  atrr_writer :name, :age
+  atrr_accessor :name, :age
+  atrr_reader :id
 
   def initialize(age, name = 'unknown', parent_permission: true)
     super()
