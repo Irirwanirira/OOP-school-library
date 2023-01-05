@@ -6,10 +6,10 @@ require_relative 'person'
 require_relative 'book'
 require_relative 'student'
 
-class App 
+class App
   attr_reader :people, :books, :rentals
 
-  def initialize 
+  def initialize
     @people = []
     @books = []
     @rentals = []
@@ -31,18 +31,18 @@ class App
     @books.push(book)
   end
 
-  def add_rental(rental)
+  def add_rentals(rental)
     @rentals.push(rental)
   end
 
   def list_books
     if @books.empty?
-        puts 'Book list is empty!'
+      puts 'Book list is empty!'
     else
       @books.each_with_index do |book, index|
         puts "#{index})- Title: #{book.title}, Author: #{book.author}"
       end
-    end  
+    end
   end
 
   def list_people
@@ -83,7 +83,7 @@ class App
 
   def create_student(name, age)
     print 'Has parent permission?[Y/N]: '
-    parent_permission = if gets.chomp.match(/(n|N)/)
+    parent_permission = if gets.chomp =~ /(n|N)/
                           false
                         else
                           true
@@ -97,7 +97,6 @@ class App
     Teacher.new(name, age, specialization)
   end
 
-
   def create_book
     print 'Title: '
     title = gets.chomp
@@ -107,7 +106,6 @@ class App
     add_book(book)
     puts 'Book created successfully.'
   end
-
 
   def create_rental
     puts 'Select a book from the following list by number: '
@@ -123,24 +121,6 @@ class App
     puts 'Rental created successfully.'
   end
 
-  def pick_action(number)
-    case number
-    when 1
-      list_books
-    when 2
-      list_people
-    when 3
-      create_person
-    when 4
-      create_book
-    when 5
-      create_rental
-    when 6
-      list_rentals
-    end
-  end
-
-
   def run
     puts 'Welcome to School Library App!'
     exit = false
@@ -149,16 +129,13 @@ class App
       number = gets.to_i
 
       if number < 7
-        pick_action(number)
+        pick_action_command(number)
       elsif number == 7
-        puts 'Thanks for using our library app, see you soon!'
+        puts 'Thank you for using our library app!'
         exit = true
       else
-        puts "Error friend, wrong input. Sorry I don't make the rules ¯\\(ツ)/¯"
+        puts 'wrong input'
       end
     end
   end
 end
-
-
-
