@@ -1,4 +1,3 @@
-
 require_relative 'rental'
 require_relative 'classroom'
 require_relative 'teacher'
