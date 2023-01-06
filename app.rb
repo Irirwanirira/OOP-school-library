@@ -69,15 +69,25 @@ class App
 
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-    number = gets.chomp.to_i
+    person_type = gets.chomp
+    if person_type != '1' && person_type != '2'
+      puts 'Invalid option'
+      return
+    end
     print 'Age: '
-    age = gets.chomp.to_i
+    age = gets.chomp
     print 'Name: '
     name = gets.chomp
-    person = create_student(name, age) if number == 1
-    person = create_teacher(name, age) if number == 2
-    add_person(person)
-    puts 'Person created successfully.'
+    if person_type == '1'
+      print 'Parent Permission: '
+    else
+      print 'Specialization:'
+    end
+    parent_permission = gets.chomp
+    person = person_type == '1' ? Student.new(age, name, parent_permission) : Teacher.new(age, 'Unknown', name)
+    @people.push(person)
+    puts "Person created successfully #{person}", person.name, person.age,
+         person
   end
 
   def create_student(name, age)
@@ -88,12 +98,6 @@ class App
                           true
                         end
     Student.new(name, age, parent_permission: parent_permission)
-  end
-
-  def create_teacher(name, age)
-    print 'Specialization: '
-    specialization = gets.chomp
-    Teacher.new(name, age, specialization)
   end
 
   def create_book

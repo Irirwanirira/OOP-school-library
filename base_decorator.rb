@@ -1,7 +1,7 @@
-require 'nameable'
+require_relative 'nameable'
 
 class BaseDecorator < Nameable
-  atrr_accessor :nameable
+  attr_accessor :nameable
 
   def initilize(nameable)
     super()

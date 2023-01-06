@@ -1,10 +1,8 @@
 require_relative 'app'
 
-puts 'Welcome to your school library'
-
 def main
   app = App.new
-  app.start
+  app.run
 end
 
 def pick_action_command(number)
