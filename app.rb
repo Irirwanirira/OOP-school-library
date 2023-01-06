@@ -54,18 +54,6 @@ class App
     end
   end
 
-  def list_rentals
-    puts 'No rentals available!' if @rentals.empty?
-    print 'ID of person: '
-    person_id = gets.chomp.to_i
-    puts 'Rentals: '
-    @rentals.each do |rental|
-      if rental.person_id == person_id
-        puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author} taken by #{rental.person.name}"
-      end
-    end
-  end
-
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     person_type = gets.chomp
@@ -121,6 +109,19 @@ class App
     @rentals.push(Rental.new(date, @people[person_id], @books[book_id]))
     add_rentals(rentals)
     puts 'Rental created successfully.'
+  end
+
+
+  def list_rentals
+    print 'ID of person: '
+    id = gets.chomp.to_i
+    puts 'Rentals: '
+    @people.each do |person|
+      next unless person.id == id
+      person.rentals.each do |rental|
+        puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
+      end
+    end
   end
 
   def run
