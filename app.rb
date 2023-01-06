@@ -111,7 +111,6 @@ class App
     puts 'Rental created successfully.'
   end
 
-
   def list_rentals
     print 'ID of person: '
     id = gets.chomp.to_i
