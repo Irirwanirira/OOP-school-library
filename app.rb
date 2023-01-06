@@ -84,7 +84,7 @@ class App
       print 'Specialization:'
     end
     parent_permission = gets.chomp
-    person = person_type == '1' ? Student.new(age, name, parent_permission) : Teacher.new(age, 'Unknown', name)
+    person = person_type == '1' ? Student.new(name, age, parent_permission) : Teacher.new(age, 'Unknown', name)
     @people.push(person)
     puts "Person created successfully #{person}", person.name, person.age,
          person
