@@ -26,6 +26,6 @@ class Person < Nameable
   private :of_age?
 
   def can_use_services?
-   true if of_age? || @parent_permission
+    true if of_age? || @parent_permission
   end
 end

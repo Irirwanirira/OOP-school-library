@@ -132,7 +132,7 @@ class App
       number = gets.to_i
 
       if number < 7
-        pick_action_command(number)
+        choose_action(number)
       elsif number == 7
         puts 'Thank you for using our library app!'
         exit = true

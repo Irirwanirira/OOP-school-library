@@ -5,7 +5,7 @@ def main
   app.run
 end
 
-def pick_action_command(number)
+def choose_action(number)
   case number
   when 1
     list_books
