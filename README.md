@@ -73,8 +73,8 @@ Run the code in the console/irb.
 
 # 🔭 Future Features <a name="key-features"></a>
 
-- **add new students or teachers functionality**
-- **add new books functionality**
+- **Remove traceback line displayed in the terminal after showing rentals**
+- **re-arrange names of person and age displayed**
 - **Make a list of peple who rented a book**
 
 ## 🤝 Contributing <a name="contributing"></a>

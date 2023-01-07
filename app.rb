@@ -49,7 +49,7 @@ class App
       puts 'People list is empty! '
     else
       @people.each_with_index do |person, index|
-        puts "#{index})- [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+        puts "#{index})- [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.name}"
       end
     end
   end
@@ -61,20 +61,20 @@ class App
       puts 'Invalid option'
       return
     end
-    print 'Age: '
-    age = gets.chomp
-    print 'Name: '
+    print 'name: '
     name = gets.chomp
+    print 'age: '
+    age = gets.chomp
     if person_type == '1'
       print 'Parent Permission: '
     else
       print 'Specialization:'
     end
     parent_permission = gets.chomp
-    person = person_type == '1' ? Student.new(name, age, parent_permission) : Teacher.new(age, 'Unknown', name)
+    person = person_type == '1' ? Student.new(age, name, parent_permission) : Teacher.new(age, 'Unknown', name)
     @people.push(person)
-    puts "Person created successfully #{person}", person.name, person.age,
-         person
+    puts "Person created successfully #{person}", person.name, person.age
+    #  person
   end
 
   def create_student(name, age)
@@ -112,15 +112,17 @@ class App
   end
 
   def list_rentals
+    list_people
     print 'ID of person: '
     id = gets.chomp.to_i
-    puts 'Rentals: '
+    puts '___________Rentals_______________'
     @people.each do |person|
-      next unless person.id == id
-
-      person.rentals.each do |rental|
-        puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
+      if person.id == id
+        @rentals.each do |rental|
+          puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
+        end
       end
+      puts "\n"
     end
   end
 
