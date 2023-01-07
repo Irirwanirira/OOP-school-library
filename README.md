@@ -71,6 +71,12 @@ Run the code in the console/irb.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+# 🔭 Future Features <a name="key-features"></a>
+
+- **Remove traceback line displayed in the terminal after showing rentals**
+- **re-arrange names of person and age displayed**
+- **Make a list of peple who rented a book**
+
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!

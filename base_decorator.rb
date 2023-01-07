@@ -1,14 +1,8 @@
-require 'nameable'
+# require_relative 'nameable'
+require_relative 'decorator'
 
-class BaseDecorator < Nameable
-  atrr_accessor :nameable
-
-  def initilize(nameable)
-    super()
-    @nameable = nameable
-  end
-
+class CapitalizeDecorator < Decorator
   def correct_name
-    @nameable.correct_name
+    @nameable.correct_name.capitalize
   end
 end
